@@ -35,13 +35,13 @@ GitHub → **Settings → Developer settings → OAuth Apps → New OAuth App**
 
 ### ب) انشر وسيط OAuth على Cloudflare Workers
 ```bash
-npm i -g wrangler
-wrangler login
-wrangler deploy cloudflare/oauth-worker.js --name zlupos-cms-oauth
-wrangler secret put GITHUB_CLIENT_ID
-wrangler secret put GITHUB_CLIENT_SECRET
+npx wrangler login
+npx wrangler deploy --config cloudflare/wrangler.toml
+npx wrangler secret put GITHUB_CLIENT_ID     --config cloudflare/wrangler.toml
+npx wrangler secret put GITHUB_CLIENT_SECRET --config cloudflare/wrangler.toml
 ```
-> ⚠️ لا تعمل Cloudflare Pages على تشغيل هذا الوسيط تلقائيًا — يجب نشر الـ Worker مرة واحدة.
+> ⚠️ لا يعمل Cloudflare Pages على تشغيل هذا الوسيط تلقائيًا — يجب نشر الـ Worker مرة واحدة.
+> بعد النشر سيصبح الرابط: `https://zlupos-cms-oauth.<account>.workers.dev`
 
 ### ج) اضبط رابط الوسيط في الإعدادات
 في `admin/config.yml`:

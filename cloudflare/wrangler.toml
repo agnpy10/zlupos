@@ -1,0 +1,13 @@
+# ══════════════════════════════════════════════════════
+#  Cloudflare Worker — وسيط OAuth الخاص بـ Decap CMS
+#  النشر:  npx wrangler deploy --config cloudflare/wrangler.toml
+#  الأسرار: npx wrangler secret put GITHUB_CLIENT_ID  --config cloudflare/wrangler.toml
+#          npx wrangler secret put GITHUB_CLIENT_SECRET --config cloudflare/wrangler.toml
+# ══════════════════════════════════════════════════════
+name = "zlupos-cms-oauth"
+main = "oauth-worker.js"
+compatibility_date = "2026-11-01"
+
+# لا تضع GITHUB_CLIENT_SECRET هنا — استخدم wrangler secret
+[vars]
+# GITHUB_CLIENT_ID = "Iv1.xxxxxxxxxxxx"
