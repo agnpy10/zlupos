@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <title>لوحة التحكم · Mohamed Abo Zaine</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230a0f1e'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Arial'%20font-size='36'%20font-weight='bold'%20text-anchor='middle'%20fill='%23FFD700'%3EM%3C/text%3E%3C/svg%3E"/>
+</head>
+<body>
+  <!-- شاشة تحميل تظهر قبل إقلاع Decap CMS -->
+  <div id="cms-boot" style="font-family:system-ui,'Segoe UI',Tahoma,sans-serif;background:#0a0f1e;color:#f1f5f9;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;text-align:center">
+    <div>
+      <div style="width:56px;height:56px;margin:0 auto 18px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;box-shadow:0 6px 18px rgba(37,99,235,.45)">M</div>
+      <p style="font-size:16px;font-weight:700;margin:0 0 6px">جارٍ تحميل لوحة التحكم…</p>
+      <p style="font-size:13px;color:#a8b3c4;margin:0">Decap CMS — content manager</p>
+    </div>
+  </div>
+
+  <noscript>
+    <div style="font-family:system-ui,'Segoe UI',Tahoma,sans-serif;background:#0a0f1e;color:#f1f5f9;padding:40px 20px;text-align:center">
+      <p style="font-size:16px;font-weight:700">لوحة التحكم تحتاج JavaScript.</p>
+      <p style="font-size:13px;color:#a8b3c4">The admin panel requires JavaScript to be enabled.</p>
+    </div>
+  </noscript>
+
+  <!-- Decap CMS 3.x -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    /* إخفاء شاشة التحميل عند إقلاع CMS */
+    window.addEventListener('load', function () {
+      var boot = document.getElementById('cms-boot');
+      if (boot) boot.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

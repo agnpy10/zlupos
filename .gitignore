@@ -1,0 +1,19 @@
+# ── نسخ احتياطية وأدلة تطوير (غير منشورة) ──────────────
+backup/
+qa-screens/
+photos/
+shot.png
+shot_tall.png
+shot_tall_3000.png
+
+# ── مخرجات النشر (تُبنى من جذر المشروع) ─────────────────
+publish/
+publish.zip
+.wrangler/
+
+# ── أدوات ──────────────────────────────────────────────
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini

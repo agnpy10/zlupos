@@ -1,0 +1,110 @@
+# ══════════════════════════════════════════════════════════════
+#  Decap CMS — لوحة تحكم zlupos.com
+#  المستودع: zlupos/zlupos   ·   الفرع: main
+#  كل المحتوى يُحفظ في: content.json  (جذر المشروع)
+# ══════════════════════════════════════════════════════════════
+
+backend:
+  name: github
+  repo: agnpy10/zlupos
+  branch: main
+  # وسيط OAuth — راجع cloudflare/oauth-worker.js و README-CMS.md
+  base_url: https://zlupos-cms-oauth.agnpy10.workers.dev
+  auth_endpoint: auth
+  commit_messages:
+    create: 'content: create {{collection}} "{{slug}}"'
+    update: 'content: update {{collection}} "{{slug}}"'
+    delete: 'content: delete {{collection}} "{{slug}}"'
+    uploadMedia: 'content: upload "{{path}}"'
+    deleteMedia: 'content: delete "{{path}}"'
+
+site_url: https://zlupos.com
+display_url: https://zlupos.com
+logo_url: https://zlupos.com/assets/og-cover.jpg
+locale: ar
+
+# الصور تُرفع إلى جذر المستودع (مثل avatar.jpg و g01.jpg الحالية)
+media_folder: "."
+public_folder: "/"
+
+# للتعديل محليًا بدون OAuth: npx decap-server  ثم اجعلها true
+local_backend: false
+
+collections:
+  - name: site
+    label: "محتوى الموقع"
+    label_singular: "محتوى الموقع"
+    description: "النصوص والصور الرئيسية ومعرض الصور — تُحفظ كلها في content.json"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: content
+        label: "النصوص · الصور · المعرض"
+        file: "content.json"
+        fields:
+
+          # ── 1) النصوص ────────────────────────────────────────
+          - label: "📝 النصوص"
+            name: texts
+            widget: object
+            fields:
+              - { label: "اسم الشعار (الهيدر) — إنجليزي", name: brand_en, widget: string }
+              - { label: "اسم الشعار (الهيدر) — عربي", name: brand_ar, widget: string }
+              - { label: "الاسم الكامل — إنجليزي", name: name_en, widget: string, required: true }
+              - { label: "الاسم الكامل — عربي", name: name_ar, widget: string, required: true }
+              - { label: "التسمية الصغيرة فوق الاسم", name: badge, widget: string, required: false }
+              - { label: "الوصف — إنجليزي", name: bio_en, widget: text }
+              - { label: "الوصف — عربي", name: bio_ar, widget: text }
+              - { label: "نص الفوتر", name: footer_en, widget: string }
+
+          # ── 2) بيانات التواصل ───────────────────────────────
+          - label: "📞 بيانات التواصل"
+            name: contact
+            widget: object
+            fields:
+              - { label: "رقم الهاتف (للعرض)", name: phone_display, widget: string, hint: "يظهر بجانب بطاقة الاتصال — مثال: +971 50 883 7488" }
+              - { label: "رقم الهاتف (للرابط)", name: phone_number, widget: string, hint: "بصيغة دولية بلا مسافات: +971508837488 — يُستخدم في tel: وفي vCard" }
+              - { label: "رابط واتساب", name: whatsapp, widget: string, hint: "https://wa.me/971508837488" }
+              - { label: "رابط فيسبوك", name: facebook, widget: string }
+              - { label: "رابط الموقع", name: site_url, widget: string, hint: "يُكتب داخل ملف جهة الاتصال (vCard)" }
+
+          # ── 3) الصور الرئيسية ────────────────────────────────
+          - label: "🖼️ الصور الرئيسية"
+            name: media
+            widget: object
+            fields:
+              - { label: "صورة البروفايل (الدائرة)", name: avatar, widget: image, media_library: { config: { multiple: false } } }
+              - { label: "صورة الغلاف", name: cover, widget: image, media_library: { config: { multiple: false } } }
+              - { label: "صورة جهة الاتصال (داخل vCard)", name: contact_photo, widget: image, hint: "تُضمَّن Base64 داخل ملف .vcf — يفضّل 400×400", media_library: { config: { multiple: false } } }
+              - { label: "رمز QR — واتساب", name: qr_whatsapp, widget: image, required: false }
+              - { label: "رمز QR — اتصال", name: qr_call, widget: image, required: false }
+              - { label: "رمز QR — فيسبوك", name: qr_facebook, widget: image, required: false }
+
+          # ── 4) عناوين الأقسام ────────────────────────────────
+          - label: "🏷️ عناوين الأقسام"
+            name: titles
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "تواصل — إنجليزي", name: contact_en, widget: string }
+              - { label: "تواصل — عربي", name: contact_ar, widget: string }
+              - { label: "حفظ جهة الاتصال — إنجليزي", name: save_en, widget: string }
+              - { label: "حفظ جهة الاتصال — عربي", name: save_ar, widget: string }
+              - { label: "QR — إنجليزي", name: qr_en, widget: string }
+              - { label: "QR — عربي", name: qr_ar, widget: string }
+              - { label: "المعرض — إنجليزي", name: gallery_en, widget: string }
+              - { label: "المعرض — عربي", name: gallery_ar, widget: string }
+
+          # ── 5) معرض الصور: إضافة / حذف / إعادة ترتيب ─────────
+          - label: "🖼️ معرض الصور"
+            name: gallery
+            widget: list
+            label_singular: "صورة"
+            summary: "{{fields.image}}"
+            collapsed: true
+            fields:
+              - { label: "الصورة", name: image, widget: image, media_library: { config: { multiple: false } } }
+              - { label: "وصف الصورة — إنجليزي (alt)", name: alt_en, widget: string, required: false }
+              - { label: "وصف الصورة — عربي (alt)", name: alt_ar, widget: string, required: false }
+

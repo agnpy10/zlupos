@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mohamed Abo Zaine | محمد أبو زين</title>
+  <link rel="canonical" href="https://zlupos.com/"/>
+  <meta property="og:url" content="https://zlupos.com/"/>
+  <meta property="og:type" content="profile"/>
+  <meta property="og:title" content="Mohamed Abo Zaine | محمد أبو زين"/>
+  <meta property="og:description" content="Personal contact card & profile of Mohamed Abo Zaine."/>
+  <meta property="og:image" content="https://zlupos.com/assets/og-cover.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --bg: #060913;
+      --card-bg: rgba(15, 20, 34, 0.75);
+      --card-border: rgba(212, 175, 55, 0.25);
+      --txt: #f8fafc;
+      --muted: #a0aec0;
+      --gold-1: #bf953f;
+      --gold-2: #fcf6ba;
+      --gold-3: #b38728;
+      --gold-4: #aa771c;
+      --gold-grad: linear-gradient(135deg, var(--gold-1), var(--gold-2), var(--gold-3), var(--gold-4));
+      --gold-text: linear-gradient(135deg, #d4af37 0%, #fff8dc 50%, #aa771c 100%);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-family: 'Inter', 'Cairo', sans-serif; background: var(--bg); color: var(--txt); }
+
+    .site-wrap { width: 100%; max-width: 480px; margin: 0 auto; background: #080c17; min-height: 100vh; position: relative; border-left: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); }
+
+    /* Header Navbar */
+    .header { position: sticky; top: 0; z-index: 50; background: rgba(8, 12, 23, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--card-border); height: 60px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-logo { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--gold-1); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-weight: 700; color: var(--gold-2); background: radial-gradient(circle, #1a150a 0%, #080c17 100%); }
+    .brand-name { font-size: 0.85rem; font-weight: 600; line-height: 1.2; }
+    .brand-name .en { display: block; font-family: 'Cinzel', serif; color: var(--gold-2); }
+    .brand-name .ar { display: block; font-size: 0.75rem; color: var(--muted); }
+    
+    .nav { display: flex; gap: 14px; font-size: 0.8rem; }
+    .nav-link { color: var(--muted); text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: color 0.2s; }
+    .nav-link:hover { color: var(--gold-2); }
+    .nav-link .ar { font-size: 0.7rem; }
+
+    .status-pill { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: #4ade80; background: rgba(74, 222, 128, 0.1); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(74, 222, 128, 0.2); }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 8px #4ade80; }
+
+    /* Hero / Cover Section */
+    .hero-container { position: relative; width: 100%; height: 220px; }
+    .hero-banner { width: 100%; height: 100%; object-fit: cover; }
+    .hero-wave { position: absolute; bottom: -1px; left: 0; width: 100%; height: 45px; fill: #080c17; }
+
+    /* Profile Avatar */
+    .avatar-wrapper { position: relative; margin-top: -60px; text-align: center; z-index: 10; }
+    .avatar-ring { display: inline-block; padding: 4px; border-radius: 50%; background: var(--gold-grad); box-shadow: 0 0 20px rgba(191, 149, 63, 0.3); }
+    .avatar-img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; display: block; border: 3px solid #080c17; }
+
+    /* Personal Info */
+    .info-section { text-align: center; padding: 16px 24px 24px; }
+    .badge-variant { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-1); display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px; }
+    .badge-variant::before, .badge-variant::after { content: ''; width: 30px; height: 1px; background: var(--gold-1); opacity: 0.5; }
+    
+    .name-en { font-family: 'Cinzel', serif; font-size: 1.75rem; font-weight: 700; background: var(--gold-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 4px; }
+    .name-ar { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .diamond-sep { color: var(--gold-1); font-size: 0.8rem; margin: 8px 0; opacity: 0.7; }
+    .bio-text { font-size: 0.85rem; color: var(--muted); line-height: 1.5; max-width: 360px; margin: 0 auto; }
+    .bio-text .ar { display: block; margin-top: 6px; font-size: 0.82rem; }
+
+    /* Section Headers */
+    .sec-header { text-align: center; margin: 28px 0 16px; position: relative; }
+    .sec-title-en { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700; color: var(--gold-2); display: block; }
+    .sec-title-ar { font-size: 0.85rem; color: var(--muted); display: block; }
+    .sec-header::before, .sec-header::after { content: ''; position: absolute; top: 50%; width: 22%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-1)); }
+    .sec-header::before { left: 16px; }
+    .sec-header::after { right: 16px; background: linear-gradient(270deg, transparent, var(--gold-1)); }
+
+    /* Contact Cards */
+    .contacts-wrap { padding: 0 20px; display: flex; flex-direction: column; gap: 12px; }
+    .btn-card { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-radius: var(--radius); text-decoration: none; color: #fff; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid var(--card-border); background: var(--card-bg); }
+    .btn-card:active { transform: scale(0.98); }
+    
+    .btn-card.gold-style { background: var(--gold-grad); color: #000; border: none; font-weight: 700; box-shadow: 0 4px 15px rgba(191, 149, 63, 0.25); }
+    .btn-card.gold-style .card-icon { background: rgba(0,0,0,0.15); color: #000; }
+    .btn-card.gold-style .card-sub { color: #222; }
+
+    .card-left { display: flex; align-items: center; gap: 14px; }
+    .card-icon { width: 38px; height: 38px; border-radius: 10px; background: rgba(212, 175, 55, 0.12); color: var(--gold-2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .card-title { font-size: 0.95rem; font-weight: 600; }
+    .card-sub { font-size: 0.75rem; color: var(--muted); }
+    .card-val { font-size: 0.9rem; font-family: monospace; letter-spacing: 0.5px; color: var(--gold-2); margin-left: auto; margin-right: 12px; }
+    .card-arrow { color: var(--muted); font-size: 0.8rem; }
+
+    /* Save Contact Card */
+    .save-box { margin: 24px 20px 0; padding: 20px; border-radius: var(--radius); border: 1px solid var(--card-border); background: var(--card-bg); text-align: center; }
+    .save-header { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; }
+    .save-thumb { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--gold-1); object-fit: cover; }
+    .save-title { font-size: 0.95rem; font-weight: 700; color: var(--gold-2); }
+    .save-title .ar { font-size: 0.8rem; color: var(--muted); display: block; }
+
+    .download-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .dl-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 12px; border: 1px solid var(--card-border); background: rgba(255,255,255,0.03); color: #fff; text-decoration: none; font-size: 0.75rem; transition: background 0.2s; cursor: pointer; }
+    .dl-btn:hover { background: rgba(212, 175, 55, 0.15); }
+    .dl-btn i { font-size: 1.1rem; color: var(--gold-2); }
+    .dl-text { text-align: left; }
+    .dl-text .ar { display: block; font-size: 0.65rem; color: var(--muted); }
+
+    /* QR Code Section */
+    .qr-container { margin: 0 20px; padding: 20px; border-radius: var(--radius); border: 1px solid var(--card-border); background: var(--card-bg); display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center; }
+    .qr-card img { width: 100%; aspect-ratio: 1; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: #fff; padding: 4px; object-fit: contain; }
+    .qr-desc { font-size: 0.65rem; color: var(--muted); margin-top: 8px; line-height: 1.3; }
+    .qr-desc .ar { display: block; font-size: 0.6rem; color: #718096; margin-top: 2px; }
+
+    /* Photo Gallery Section */
+    .gallery-grid { padding: 0 20px 40px; display: flex; flex-direction: column; gap: 16px; }
+    .photo-card { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--card-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+    .photo-card img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
+
+    /* Footer */
+    .footer { text-align: center; padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <div class="site-wrap">
+    
+    <!-- Top Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-logo">M</div>
+        <div class="brand-name">
+          <span class="en" data-cms="texts.brand_en">M. Abo Zaine</span>
+          <span class="ar" data-cms="texts.brand_ar">محمد أبو زين</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#profile" class="nav-link"><span class="en">Home</span><span class="ar">الرئيسية</span></a>
+        <a href="#contact" class="nav-link"><span class="en">Contact</span><span class="ar">تواصل</span></a>
+        <a href="#gallery" class="nav-link"><span class="en">Gallery</span><span class="ar">المعرض</span></a>
+      </nav>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span class="en">Online</span>
+      </div>
+    </header>
+
+    <!-- Cover Image with Wave Bottom -->
+    <div class="hero-container" id="profile">
+      <img src="cover.jpg" alt="Cover" class="hero-banner" data-cms-src="media.cover"/>
+      <svg class="hero-wave" viewBox="0 0 500 150" preserveAspectRatio="none">
+        <path d="M0.00,49.98 C150.00,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"></path>
+      </svg>
+    </div>
+
+    <!-- Avatar -->
+    <div class="avatar-wrapper">
+      <div class="avatar-ring">
+        <img src="avatar.jpg" alt="Mohamed Abo Zaine" class="avatar-img" data-cms-src="media.avatar"/>
+      </div>
+    </div>
+
+    <!-- Personal Info -->
+    <section class="info-section">
+      <div class="badge-variant" data-cms="texts.badge">VARIANT 01 • PERSONAL CARD</div>
+      <h1 class="name-en" data-cms="texts.name_en">Mohamed Abo Zaine</h1>
+      <h2 class="name-ar" data-cms="texts.name_ar">محمد أبو زين</h2>
+      <div class="diamond-sep">◇</div>
+      <p class="bio-text">
+        <span class="bio-en" data-cms="texts.bio_en">Welcome to my personal page. Feel free to reach out — I'm always happy to connect!</span>
+        <span class="ar" lang="ar" dir="rtl" data-cms="texts.bio_ar">مرحباً بك في صفحتي الشخصية. لا تتردد في التواصل معي، يسعدني دائماً التعرف على أشخاص جدد!</span>
+      </p>
+    </section>
+
+    <!-- Contact Me Section -->
+    <div class="sec-header" id="contact">
+      <span class="sec-title-en" data-cms="titles.contact_en">Contact Me</span>
+      <span class="sec-title-ar" lang="ar" data-cms="titles.contact_ar">تواصل معي</span>
+    </div>
+
+    <div class="contacts-wrap">
+      <!-- Call Me -->
+      <a href="tel:+971508837488" class="btn-card" data-cms-tel="contact.phone_number">
+        <div class="card-left">
+          <div class="card-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="card-title">Call Me</div>
+            <div class="card-sub">اتصل بي</div>
+          </div>
+        </div>
+        <div class="card-val" data-cms="contact.phone_display">+971 50 883 7488</div>
+        <i class="fa-solid fa-chevron-right card-arrow"></i>
+      </a>
+
+      <!-- WhatsApp (Gold Style) -->
+      <a href="https://wa.me/971508837488" target="_blank" class="btn-card gold-style" data-cms-href="contact.whatsapp">
+        <div class="card-left">
+          <div class="card-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <div class="card-title">WhatsApp</div>
+            <div class="card-sub">واتساب</div>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right card-arrow"></i>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/mohamed.elzeny.434733/" target="_blank" class="btn-card" data-cms-href="contact.facebook">
+        <div class="card-left">
+          <div class="card-icon"><i class="fa-brands fa-facebook-f"></i></div>
+          <div>
+            <div class="card-title">Facebook</div>
+            <div class="card-sub">فيسبوك</div>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right card-arrow"></i>
+      </a>
+    </div>
+
+    <!-- Save My Contact Box -->
+    <div class="save-box">
+      <div class="save-header">
+        <img src="avatar.jpg" class="save-thumb" alt="Mohamed Abo Zaine" data-cms-src="media.avatar"/>
+        <div class="save-title">
+          <span data-cms="titles.save_en">Save My Contact</span>
+          <span class="ar" data-cms="titles.save_ar">احفظ جهة الاتصال</span>
+        </div>
+      </div>
+      <div class="download-btns">
+        <button class="dl-btn" id="dlVcardAndroid">
+          <i class="fa-brands fa-android"></i>
+          <div class="dl-text">
+            <div>Download for Android</div>
+            <span class="ar">تنزيل لأجهزة أندرويد</span>
+          </div>
+        </button>
+        <button class="dl-btn" id="dlVcardIphone">
+          <i class="fa-brands fa-apple"></i>
+          <div class="dl-text">
+            <div>Download for iPhone</div>
+            <span class="ar">تنزيل لأجهزة أيفون</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Contact — QR Section -->
+    <div class="sec-header">
+      <span class="sec-title-en" data-cms="titles.qr_en">Quick Contact — QR</span>
+      <span class="sec-title-ar" lang="ar" data-cms="titles.qr_ar">تواصل سريع عبر رمز QR</span>
+    </div>
+
+    <div class="qr-container">
+      <div class="qr-card">
+        <img src="assets/qr-whatsapp.png" alt="WhatsApp QR" data-cms-src="media.qr_whatsapp"/>
+        <div class="qr-desc">
+          Scan to chat on WhatsApp
+          <span class="ar">امسح الرمز لبدء محادثة واتساب</span>
+        </div>
+      </div>
+      <div class="qr-card">
+        <img src="assets/qr-call.png" alt="Call QR" data-cms-src="media.qr_call"/>
+        <div class="qr-desc">
+          Scan to call directly
+          <span class="ar">امسح الرمز للاتصال مباشرة</span>
+        </div>
+      </div>
+      <div class="qr-card">
+        <img src="assets/qr-facebook.png" alt="Facebook QR" data-cms-src="media.qr_facebook"/>
+        <div class="qr-desc">
+          Scan to view Facebook profile
+          <span class="ar">امسح الرمز لزيارة صفحة فيسبوك</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo Gallery -->
+    <div class="sec-header" id="gallery">
+      <span class="sec-title-en" data-cms="titles.gallery_en">Photo Gallery</span>
+      <span class="sec-title-ar" lang="ar" data-cms="titles.gallery_ar">معرض الصور</span>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="photo-card"><img src="cover.jpg" alt="Gallery Cover Photo" loading="lazy"/></div>
+      <div class="photo-card"><img src="g01.jpg" alt="Gallery Photo 1" loading="lazy"/></div>
+      <div class="photo-card"><img src="g02.jpg" alt="Gallery Photo 2" loading="lazy"/></div>
+      <div class="photo-card"><img src="g03.jpg" alt="Gallery Photo 3" loading="lazy"/></div>
+      <div class="photo-card"><img src="g04.jpg" alt="Gallery Photo 4" loading="lazy"/></div>
+      <div class="photo-card"><img src="g05.jpg" alt="Gallery Photo 5" loading="lazy"/></div>
+      <div class="photo-card"><img src="g06.jpg" alt="Gallery Photo 6" loading="lazy"/></div>
+      <div class="photo-card"><img src="g07.jpg" alt="Gallery Photo 7" loading="lazy"/></div>
+      <div class="photo-card"><img src="g08.jpg" alt="Gallery Photo 8" loading="lazy"/></div>
+      <div class="photo-card"><img src="g10.jpg" alt="Gallery Photo 10" loading="lazy"/></div>
+      <div class="photo-card"><img src="g11.jpg" alt="Gallery Photo 11" loading="lazy"/></div>
+      <div class="photo-card"><img src="g12.jpg" alt="Gallery Photo 12" loading="lazy"/></div>
+      <div class="photo-card"><img src="g13.jpg" alt="Gallery Photo 13" loading="lazy"/></div>
+      <div class="photo-card"><img src="g14.jpg" alt="Gallery Photo 14" loading="lazy"/></div>
+      <div class="photo-card"><img src="g15.jpg" alt="Gallery Photo 15" loading="lazy"/></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" data-cms="texts.footer_en">
+      © 2026 Mohamed Abo Zaine. All rights reserved.
+    </footer>
+
+  </div>
+
+  <!-- ═══ CMS: تحميل المحتوى الديناميكي من content.json (Decap CMS) ═══ -->
+  <script>
+    var CMS = {};
+    var FALLBACK = {
+      phone_number: '+971508837488',
+      whatsapp: 'https://wa.me/971508837488',
+      facebook: 'https://www.facebook.com/mohamed.elzeny.434733/',
+      site_url: 'https://zlupos.com/',
+      contact_photo: 'assets/contact-photo.jpg'
+    };
+
+    /* قراءة مفتاح متداخل مثل: media.avatar */
+    function cmsDig(obj, path) {
+      return path.split('.').reduce(function (o, k) { return (o && o[k] != null) ? o[k] : null; }, obj);
+    }
+    function cmsGet(path, fallback) {
+      var v = cmsDig(CMS, path);
+      return (v === null || v === undefined || v === '') ? fallback : v;
+    }
+    function cmsEscape(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    /* معرض الصور: يُعاد بناؤه من content.json عند توفّره */
+    function renderGallery() {
+      var grid = document.getElementById('galleryGrid');
+      var items = cmsDig(CMS, 'gallery');
+      if (!grid || !Array.isArray(items) || items.length === 0) return;
+      var html = items.map(function (item) {
+        var src = (item && item.image) ? item.image : '';
+        if (!src) return '';
+        var alt = item.alt_en || item.alt_ar || 'Gallery photo';
+        return '<div class="photo-card"><img src="' + cmsEscape(src) + '" alt="' + cmsEscape(alt) + '" loading="lazy"/></div>';
+      }).join('');
+      if (html) grid.innerHTML = html;
+    }
+
+    /* ربط النصوص والصور والروابط عبر سمات data-cms* */
+    function applyCMSContent() {
+      document.querySelectorAll('[data-cms]').forEach(function (el) {
+        var v = cmsDig(CMS, el.getAttribute('data-cms'));
+        if (v !== null && v !== undefined && v !== '') el.textContent = v;
+      });
+      document.querySelectorAll('[data-cms-src]').forEach(function (el) {
+        var v = cmsDig(CMS, el.getAttribute('data-cms-src'));
+        if (v) el.setAttribute('src', v);
+      });
+      document.querySelectorAll('[data-cms-href]').forEach(function (el) {
+        var v = cmsDig(CMS, el.getAttribute('data-cms-href'));
+        if (v) el.setAttribute('href', v);
+      });
+      document.querySelectorAll('[data-cms-tel]').forEach(function (el) {
+        var v = cmsDig(CMS, el.getAttribute('data-cms-tel'));
+        if (v) el.setAttribute('href', 'tel:' + String(v).replace(/[^\d+]/g, ''));
+      });
+      var nameEn = cmsDig(CMS, 'texts.name_en');
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (nameEn && ogTitle) ogTitle.setAttribute('content', nameEn + ' | Personal Contact Card');
+      renderGallery();
+    }
+
+    function loadCMSContent() {
+      return fetch('content.json', { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (json) { CMS = json || {}; applyCMSContent(); })
+        .catch(function (err) {
+          console.warn('[cms] content.json غير متاح — يُستخدم المحتوى الثابت داخل HTML.', err);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', loadCMSContent);
+  </script>
+
+
+  <!-- JavaScript for vCard Image Embedding & Download -->
+  <script>
+    function arrayBufferToBase64(buffer) {
+      let binary = '';
+      const bytes = new Uint8Array(buffer);
+      for (let i = 0; i < bytes.byteLength; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return window.btoa(binary);
+    }
+
+    /* طيّ الأسطر عند 75 بايت مع عدم تقسيم الحروف العربية (UTF-8) */
+    function foldVCardLine(line) {
+      const enc = new TextEncoder();
+      if (enc.encode(line).length <= 73) return line;
+      const chars = Array.from(line);
+      const parts = [];
+      let cur = '', bytes = 0, first = true;
+      for (const ch of chars) {
+        const b = enc.encode(ch).length;
+        const limit = first ? 73 : 72;
+        if (bytes + b > limit) { parts.push(cur); cur = ch; bytes = b; first = false; }
+        else { cur += ch; bytes += b; }
+      }
+      parts.push(cur);
+      return parts.join('\r\n ');
+    }
+
+    async function downloadVCard() {
+      try {
+        let b64Photo = '';
+        try {
+          const res = await fetch(cmsGet('media.contact_photo', FALLBACK.contact_photo), { cache: 'no-store' });
+          if (res.ok) {
+            const buf = await res.arrayBuffer();
+            b64Photo = arrayBufferToBase64(buf);
+          }
+        } catch (e) {
+          console.warn('Could not load photo for vCard', e);
+        }
+
+        const nameEn = cmsGet('texts.name_en', 'Mohamed Abo Zaine');
+        const nameAr = cmsGet('texts.name_ar', 'محمد أبو زين');
+        const telNum = cmsGet('contact.phone_number', FALLBACK.phone_number);
+        const waUrl = cmsGet('contact.whatsapp', FALLBACK.whatsapp);
+        const fbUrl = cmsGet('contact.facebook', FALLBACK.facebook);
+        const siteUrl = cmsGet('contact.site_url', FALLBACK.site_url);
+
+        const lines = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          'N:Abo Zaine;Mohamed;;;',
+          'FN:' + nameEn,
+          'NICKNAME:' + nameAr,
+          'TEL;TYPE=CELL,VOICE:' + telNum,
+          'URL;TYPE=website:' + siteUrl,
+          'URL;TYPE=WhatsApp:' + waUrl,
+          'URL;TYPE=Facebook:' + fbUrl,
+          'ADR;TYPE=HOME:;;;;;;United Arab Emirates',
+          'NOTE:Personal contact card of ' + nameEn + ' / بطاقة تواصل: ' + nameAr,
+          'REV:' + new Date().toISOString()
+        ];
+
+        if (b64Photo) {
+          lines.push('PHOTO;ENCODING=b;TYPE=JPEG:' + b64Photo);
+        }
+
+        lines.push('END:VCARD');
+
+        const vcardContent = lines.map(foldVCardLine).join('\r\n') + '\r\n';
+        const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8' });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'Mohamed_Abo_Zaine.vcf');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      } catch (err) {
+        alert('حدث خطأ أثناء تحميل ملف جهة الاتصال.');
+      }
+    }
+
+    document.getElementById('dlVcardAndroid')?.addEventListener('click', downloadVCard);
+    document.getElementById('dlVcardIphone')?.addEventListener('click', downloadVCard);
+  </script>
+</body>
+</html>
