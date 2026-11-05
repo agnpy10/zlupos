@@ -1,0 +1,11 @@
+feat(content): cover path + overlay gradient, remove welcome text and contact title
+
+- content.json: media.cover -> assets/cover.jpg
+- content.json: removed texts.bio_en / texts.bio_ar and titles.contact_en / titles.contact_ar
+- index.html: .hero-banner now object-fit cover + object-position center 30%
+- index.html: new .hero-overlay with linear-gradient(180deg, rgba(0,0,0,.3), transparent 40%, rgba(10,15,29,.85))
+- index.html: removed the bio paragraph and the Contact Me / تواصل معي section header
+- index.html: #contact id moved to .contacts-wrap (+scroll-margin-top 72px) so the nav link still works
+- index.html: tightened vertical spacing under the name (info-section bottom 0, contacts-wrap top 18px)
+- admin/config.yml: removed bio and contact-title fields to match content.json
+- assets/cover.jpg: temporary copy of the current cover until the new banner image is provided

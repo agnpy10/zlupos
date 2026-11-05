@@ -57,8 +57,6 @@ collections:
               - { label: "الاسم الكامل — إنجليزي", name: name_en, widget: string, required: true }
               - { label: "الاسم الكامل — عربي", name: name_ar, widget: string, required: true }
               - { label: "التسمية الصغيرة فوق الاسم", name: badge, widget: string, required: false }
-              - { label: "الوصف — إنجليزي", name: bio_en, widget: text }
-              - { label: "الوصف — عربي", name: bio_ar, widget: text }
               - { label: "نص الفوتر", name: footer_en, widget: string }
 
           # ── 2) بيانات التواصل ───────────────────────────────
@@ -90,8 +88,6 @@ collections:
             widget: object
             collapsed: true
             fields:
-              - { label: "تواصل — إنجليزي", name: contact_en, widget: string }
-              - { label: "تواصل — عربي", name: contact_ar, widget: string }
               - { label: "حفظ جهة الاتصال — إنجليزي", name: save_en, widget: string }
               - { label: "حفظ جهة الاتصال — عربي", name: save_ar, widget: string }
               - { label: "QR — إنجليزي", name: qr_en, widget: string }

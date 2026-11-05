@@ -6,8 +6,6 @@
     "name_en": "Mohamed Abo Zaine",
     "name_ar": "محمد أبو زين",
     "badge": "VARIANT 01 • PERSONAL CARD",
-    "bio_en": "Welcome to my personal page. Feel free to reach out — I'm always happy to connect!",
-    "bio_ar": "مرحباً بك في صفحتي الشخصية. لا تتردد في التواصل معي، يسعدني دائماً التعرف على أشخاص جدد!",
     "footer_en": "© 2026 Mohamed Abo Zaine. All rights reserved."
   },
   "contact": {
@@ -19,15 +17,13 @@
   },
   "media": {
     "avatar": "avatar.jpg",
-    "cover": "cover.jpg",
+    "cover": "assets/cover.jpg",
     "contact_photo": "assets/contact-photo.jpg",
     "qr_whatsapp": "assets/qr-whatsapp.png",
     "qr_call": "assets/qr-call.png",
     "qr_facebook": "assets/qr-facebook.png"
   },
   "titles": {
-    "contact_en": "Contact Me",
-    "contact_ar": "تواصل معي",
     "save_en": "Save My Contact",
     "save_ar": "احفظ جهة الاتصال",
     "qr_en": "Quick Contact — QR",
