@@ -35,19 +35,75 @@
     "gallery_ar": "معرض الصور"
   },
   "gallery": [
-    { "image": "g01.jpg", "alt_en": "Mohamed Abo Zaine — photo 1", "alt_ar": "محمد أبو زين — صورة ١" },
-    { "image": "g07.jpg", "alt_en": "Mohamed Abo Zaine — photo 2", "alt_ar": "محمد أبو زين — صورة ٢" },
-    { "image": "g08.jpg", "alt_en": "Mohamed Abo Zaine — photo 3", "alt_ar": "محمد أبو زين — صورة ٣" },
-    { "image": "g12.jpg", "alt_en": "Mohamed Abo Zaine — photo 4", "alt_ar": "محمد أبو زين — صورة ٤" },
-    { "image": "g13.jpg", "alt_en": "Mohamed Abo Zaine — photo 5", "alt_ar": "محمد أبو زين — صورة ٥" },
-    { "image": "g03.jpg", "alt_en": "Mohamed Abo Zaine — photo 6", "alt_ar": "محمد أبو زين — صورة ٦" },
-    { "image": "g02.jpg", "alt_en": "Mohamed Abo Zaine — photo 7", "alt_ar": "محمد أبو زين — صورة ٧" },
-    { "image": "g05.jpg", "alt_en": "Mohamed Abo Zaine — photo 8", "alt_ar": "محمد أبو زين — صورة ٨" },
-    { "image": "g06.jpg", "alt_en": "Mohamed Abo Zaine — photo 9", "alt_ar": "محمد أبو زين — صورة ٩" },
-    { "image": "g04.jpg", "alt_en": "Mohamed Abo Zaine — photo 10", "alt_ar": "محمد أبو زين — صورة ١٠" },
-    { "image": "g10.jpg", "alt_en": "Mohamed Abo Zaine — photo 11", "alt_ar": "محمد أبو زين — صورة ١١" },
-    { "image": "g11.jpg", "alt_en": "Mohamed Abo Zaine — photo 12", "alt_ar": "محمد أبو زين — صورة ١٢" },
-    { "image": "g14.jpg", "alt_en": "Mohamed Abo Zaine — photo 13", "alt_ar": "محمد أبو زين — صورة ١٣" },
-    { "image": "g15.jpg", "alt_en": "Mohamed Abo Zaine — photo 14", "alt_ar": "محمد أبو زين — صورة ١٤" }
+    {
+      "image": "g07.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 2",
+      "alt_ar": "محمد أبو زين — صورة ٢"
+    },
+    {
+      "image": "g08.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 3",
+      "alt_ar": "محمد أبو زين — صورة ٣"
+    },
+    {
+      "image": "g12.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 4",
+      "alt_ar": "محمد أبو زين — صورة ٤"
+    },
+    {
+      "image": "g13.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 5",
+      "alt_ar": "محمد أبو زين — صورة ٥"
+    },
+    {
+      "image": "g01.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 1",
+      "alt_ar": "محمد أبو زين — صورة ١"
+    },
+    {
+      "image": "g03.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 6",
+      "alt_ar": "محمد أبو زين — صورة ٦"
+    },
+    {
+      "image": "g02.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 7",
+      "alt_ar": "محمد أبو زين — صورة ٧"
+    },
+    {
+      "image": "g05.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 8",
+      "alt_ar": "محمد أبو زين — صورة ٨"
+    },
+    {
+      "image": "g06.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 9",
+      "alt_ar": "محمد أبو زين — صورة ٩"
+    },
+    {
+      "image": "g04.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 10",
+      "alt_ar": "محمد أبو زين — صورة ١٠"
+    },
+    {
+      "image": "g10.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 11",
+      "alt_ar": "محمد أبو زين — صورة ١١"
+    },
+    {
+      "image": "g11.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 12",
+      "alt_ar": "محمد أبو زين — صورة ١٢"
+    },
+    {
+      "image": "g14.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 13",
+      "alt_ar": "محمد أبو زين — صورة ١٣"
+    },
+    {
+      "image": "g15.jpg",
+      "alt_en": "Mohamed Abo Zaine — photo 14",
+      "alt_ar": "محمد أبو زين — صورة ١٤"
+    }
   ]
 }
