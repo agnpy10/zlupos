@@ -44,6 +44,9 @@ collections:
         file: "content.json"
         fields:
 
+          # ── 0) شعار الهيدر ───────────────────────────────────
+          - { label: "🏷️ أيقونة الشعار (الهيدر — 34×34)", name: logo_icon, widget: image, required: false, hint: "تُعرض أعلى يسار الصفحة بدائرة وإطار ذهبي", media_library: { config: { multiple: false } } }
+
           # ── 1) النصوص ────────────────────────────────────────
           - label: "📝 النصوص"
             name: texts

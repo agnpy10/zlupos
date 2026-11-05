@@ -128,6 +128,111 @@
 
     /* Footer */
     .footer { text-align: center; padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════════════════════
+       ✨ تحسينات تجميلية — لمعان ذهبي متحرك (2026)
+    ══════════════════════════════════════════════════════ */
+
+    /* 1) نص ذهبي بلمعان متحرك + وهج ناعم */
+    .gold-animated-text {
+      background: linear-gradient(100deg,
+        #b38728 0%, #d4af37 18%, #fcf6ba 34%, #fff8dc 46%,
+        #fcf6ba 58%, #d4af37 74%, #b38728 100%);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: goldShine 6s linear infinite;
+      filter: drop-shadow(0 0 7px rgba(212, 175, 55, 0.35));
+    }
+    @keyframes goldShine {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+
+    /* 2) صورة الشعار أعلى اليسار */
+    .header-logo-img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1.5px solid #d4af37;
+      object-fit: cover;
+      display: block;
+      flex: 0 0 auto;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.45);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .header-logo-img:hover {
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.7);
+      transform: scale(1.05);
+    }
+
+    /* 3) وصف مضغوط ومتوسّط تحت الاسم */
+    .description-compact {
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      line-height: 1.55;
+    }
+
+    /* 4) عنوان التواصل: نبض + وهج ذهبي متدرّج */
+    .contact-title-animated {
+      animation: contactTitlePulse 3s ease-in-out infinite;
+    }
+    .contact-title-animated .sec-title-en {
+      background: linear-gradient(90deg, #d4af37, #fff8dc, #d4af37);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShine 4s linear infinite;
+    }
+    @keyframes contactTitlePulse {
+      0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0)); }
+      50%      { transform: scale(1.03); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.45)); }
+    }
+
+    /* 5) أزرار التواصل: شريط إضاءة عابر + تكبير ووهج عند التمرير */
+    .contact-btn-animated {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .contact-btn-animated::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255, 248, 220, 0.38), transparent);
+      transform: translateX(-140%) skewX(-20deg);
+      animation: btnShine 4.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes btnShine {
+      0%, 68% { transform: translateX(-140%) skewX(-20deg); }
+      100%    { transform: translateX(320%)  skewX(-20deg); }
+    }
+    .contact-btn-animated:hover,
+    .contact-btn-animated:focus-visible {
+      transform: translateY(-2px) scale(1.015);
+      box-shadow: 0 8px 26px rgba(212, 175, 55, 0.28);
+      border-color: rgba(212, 175, 55, 0.55);
+    }
+    .contact-btn-animated:active { transform: scale(0.985); }
+
+    /* احترام تقليل الحركة */
+    @media (prefers-reduced-motion: reduce) {
+      .gold-animated-text,
+      .contact-title-animated,
+      .contact-title-animated .sec-title-en,
+      .contact-btn-animated::after { animation: none !important; }
+      .contact-btn-animated::after { display: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -137,7 +242,7 @@
     <!-- Top Header -->
     <header class="header">
       <div class="brand">
-        <div class="brand-logo">M</div>
+        <img src="assets/logo-icon.png" alt="Mohamed Abo Zaine — logo" class="header-logo-img" width="34" height="34" data-cms-src="logo_icon"/>
         <div class="brand-name">
           <span class="en" data-cms="texts.brand_en">M. Abo Zaine</span>
           <span class="ar" data-cms="texts.brand_ar">محمد أبو زين</span>
@@ -172,24 +277,24 @@
     <!-- Personal Info -->
     <section class="info-section">
       <div class="badge-variant" data-cms="texts.badge">VARIANT 01 • PERSONAL CARD</div>
-      <h1 class="name-en" data-cms="texts.name_en">Mohamed Abo Zaine</h1>
+      <h1 class="name-en gold-animated-text" data-cms="texts.name_en">Mohamed Abo Zaine</h1>
       <h2 class="name-ar" data-cms="texts.name_ar">محمد أبو زين</h2>
       <div class="diamond-sep">◇</div>
-      <p class="bio-text">
+      <p class="bio-text description-compact">
         <span class="bio-en" data-cms="texts.bio_en">Welcome to my personal page. Feel free to reach out — I'm always happy to connect!</span>
         <span class="ar" lang="ar" dir="rtl" data-cms="texts.bio_ar">مرحباً بك في صفحتي الشخصية. لا تتردد في التواصل معي، يسعدني دائماً التعرف على أشخاص جدد!</span>
       </p>
     </section>
 
     <!-- Contact Me Section -->
-    <div class="sec-header" id="contact">
+    <div class="sec-header contact-title-animated" id="contact">
       <span class="sec-title-en" data-cms="titles.contact_en">Contact Me</span>
       <span class="sec-title-ar" lang="ar" data-cms="titles.contact_ar">تواصل معي</span>
     </div>
 
     <div class="contacts-wrap">
       <!-- Call Me -->
-      <a href="tel:+971508837488" class="btn-card" data-cms-tel="contact.phone_number">
+      <a href="tel:+971508837488" class="btn-card contact-btn-animated" data-cms-tel="contact.phone_number">
         <div class="card-left">
           <div class="card-icon"><i class="fa-solid fa-phone"></i></div>
           <div>
@@ -202,7 +307,7 @@
       </a>
 
       <!-- WhatsApp (Gold Style) -->
-      <a href="https://wa.me/971508837488" target="_blank" class="btn-card gold-style" data-cms-href="contact.whatsapp">
+      <a href="https://wa.me/971508837488" target="_blank" class="btn-card gold-style contact-btn-animated" data-cms-href="contact.whatsapp">
         <div class="card-left">
           <div class="card-icon"><i class="fa-brands fa-whatsapp"></i></div>
           <div>
@@ -214,7 +319,7 @@
       </a>
 
       <!-- Facebook -->
-      <a href="https://www.facebook.com/mohamed.elzeny.434733/" target="_blank" class="btn-card" data-cms-href="contact.facebook">
+      <a href="https://www.facebook.com/mohamed.elzeny.434733/" target="_blank" class="btn-card contact-btn-animated" data-cms-href="contact.facebook">
         <div class="card-left">
           <div class="card-icon"><i class="fa-brands fa-facebook-f"></i></div>
           <div>
