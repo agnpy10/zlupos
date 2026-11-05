@@ -182,16 +182,21 @@
       animation: contactTitlePulse 3s ease-in-out infinite;
     }
     .contact-title-animated .sec-title-en {
+      display: inline-block;
       background: linear-gradient(90deg, #d4af37, #fff8dc, #d4af37);
       background-size: 200% 100%;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: goldShine 4s linear infinite;
+      animation: goldShine 4s linear infinite, contactTitleScale 3s ease-in-out infinite;
     }
     @keyframes contactTitlePulse {
-      0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0)); }
-      50%      { transform: scale(1.03); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.45)); }
+      0%, 100% { filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0)); }
+      50%      { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.45)); }
+    }
+    @keyframes contactTitleScale {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.03); }
     }
 
     /* 5) أزرار التواصل: شريط إضاءة عابر + تكبير ووهج عند التمرير */
@@ -223,6 +228,15 @@
       border-color: rgba(212, 175, 55, 0.55);
     }
     .contact-btn-animated:active { transform: scale(0.985); }
+
+    /* شاشات ضيّقة جدًا (320px): منع التمرير الأفقي */
+    @media (max-width: 359px) {
+      .header { padding: 0 12px; gap: 6px; }
+      .status-pill { display: none; }
+      .nav { gap: 10px; font-size: 0.74rem; }
+      .brand-name .en { font-size: 0.78rem; }
+      .header-logo-img { width: 30px; height: 30px; }
+    }
 
     /* احترام تقليل الحركة */
     @media (prefers-reduced-motion: reduce) {
